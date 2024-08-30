@@ -1,5 +1,8 @@
 name: slack_webhook_basic
-on: workflow_dispatch
+on:
+  push:
+    branches:
+      - main
 jobs:
   build:
     name: Build and Test
