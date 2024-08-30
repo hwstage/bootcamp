@@ -25,10 +25,25 @@ def comma(x):
     return "에러임"
 
 def main():
+    errcnt = 0 
     n = int(input())
     for i in range(n):
         m = input()
-        print(f'결과 : {comma(m)}')
+        if m[0] == '0':
+            if len(m) > 21 :
+                print("20자리를 초과하기 때문에 에러입니다.")
+        else:
+            if len(m) > 20:
+                print("20자리를 초과하기 때문에 에러입니다. ")
+        result = comma(m)
+        if result == "에러임":
+            errcnt += 1
+            if errcnt == 3:
+                print("연속으로 3회의 에러가 발생했습니다.")
+                break
+        else:
+            errcnt = 0
+        print(f'결과 : {result}')
 
 if __name__ == "__main__":
    print(main())
